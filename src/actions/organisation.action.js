@@ -20,7 +20,7 @@ function create(name,address) {
   return (dispatch) => {
     dispatch(request({name,address}));
 
-    organisationService.create(name,address)
+    organisationService.create({name,address})
     .then(
       organisation => {
         dispatch(success(organisation));

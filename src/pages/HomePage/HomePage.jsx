@@ -5,18 +5,19 @@ import Organisation from "../../organisation/organisation";
 import { CardColumns, Container } from "react-bootstrap";
 import { userActions } from "../../actions/user.actions";
 import { organisationActions } from "../../actions/organisation.action";
-import OrganisationForm from "../../components/organisationForm/organisationForm";
+import { OrganisationForm } from "../../components/organisationForm/organisationForm";
 import { Modal } from "../../components/Modal/modal";
 
 class HomePage extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       show: false,
     };
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
   }
+
 
   showModal = () => {
     this.setState({ show: true });
@@ -29,7 +30,9 @@ class HomePage extends React.Component {
   componentDidMount() {
     this.props.getUsers();
     this.props.getOrganisation();
+   
   }
+
 
   handleDeleteUser(id) {
     return (e) => this.props.deleteUser(id);
@@ -37,18 +40,18 @@ class HomePage extends React.Component {
 
   render() {
     const { organisation } = this.props;
+     console.log("promount",this.props);
     const organisationItem =
       organisation.items &&
       organisation.items.map((organisation) => (
         <Organisation name={organisation.name} address={organisation.address} />
       ));
-    console.log("<>state", this.state);
+
     return (
       <Container>
         <Modal show={this.state.show} handleClose={this.hideModal}>
-          <OrganisationForm/>
+          <OrganisationForm />
         </Modal>
-        {/* <Button onClick={this.showModal}/> */}
         <button type="button" class="btn" onClick={this.showModal}>
           <i class="fas fa-plus"></i>Add Account
         </button>
@@ -67,6 +70,7 @@ function mapState(state) {
 const actionCreators = {
   getUsers: userActions.getAll,
   getOrganisation: organisationActions.getAll,
+  createOrganisation: organisationActions.create,
 };
 
 const connectedHomePage = connect(mapState, actionCreators)(HomePage);
