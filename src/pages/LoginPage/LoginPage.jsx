@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { userActions } from "../../actions/user.actions";
-
+import "./loginPage.css";
 class LoginPage extends React.Component {
   constructor(props) {
     super(props);
