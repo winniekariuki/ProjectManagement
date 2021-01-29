@@ -33,12 +33,12 @@ class App extends React.Component {
                         }
                         
                         <Router history={history} >
-                        {(window.location.pathname!=="/login" && window.location.pathname!=="/register") ? <Navbar/>: null }
+                        {(window.location.pathname!=="/" && window.location.pathname!=="/register") ? <Navbar/>: null }
                             <Switch>
 
-                                <PrivateRoute exact path="/" component={HomePage} />
+                                <PrivateRoute exact path="/home" component={HomePage} />
                                 <PrivateRoute exact path="/opportunities" component={OpportunitiesPage} />
-                                <Route path="/login" component={LoginPage} />
+                                <Route path="/" component={LoginPage} />
                                 <Route path="/register" component={RegisterPage} />
                                 <Redirect from="*" to="/" />
                             </Switch>

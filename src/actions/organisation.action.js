@@ -16,13 +16,14 @@ function logout() {
   return { type: userConstants.LOGOUT };
 }
 
-function create(organisation) {
+function create(name,address) {
   return (dispatch) => {
-    dispatch(request(organisation));
+    dispatch(request({name,address}));
 
-    organisationService.create(organisation).then(
-      (organisation) => {
-        dispatch(success());
+    organisationService.create(name,address)
+    .then(
+      organisation => {
+        dispatch(success(organisation));
         dispatch(alertActions.success("organisation created successful"));
       },
       (error) => {

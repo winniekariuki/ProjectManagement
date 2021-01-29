@@ -6,11 +6,11 @@ export default class Navbar extends Component {
     return (
       <div>
         <div class="topnav" id="myTopnav">
-          <a href="/" class="active">
+          <a href="/home" class="active">
             Accounts
           </a>
           <a href="/opportunities">Opportunities</a>
-          <a href="/login">Logout</a>
+          <a href="/">Logout</a>
         </div>
       </div>
     );
