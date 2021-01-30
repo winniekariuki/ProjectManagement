@@ -54,15 +54,32 @@ class OpportunitiesPage extends React.Component {
       ));
 
     return (
-      <Container>
-        <Modal show={this.state.show} handleClose={this.hideModal}>
+      <div class="container">
+        <Modal show={this.state.show} handleClose={this.hideModal} class="modal-dialog modal-fullscreen-sm-down">
           <OpportunityForm />
         </Modal>
-        <button type="button" class="btn" onClick={this.showModal}>
+        <button type="button" class="btn" onClick={this.showModal}
+         style={{
+          marginLeft: "821px",
+          marginRight: "77px",
+          marginTop: "10px",
+          width: "149px",
+          marginBottom: "10px",
+          backgroundColor: "blue",
+          color: "white",
+          fontWeight: "bold",
+          borderRadius: "8px",
+          boxShadow: "black",
+          borderWidth: "1px",
+        }}
+        >
           <i class="fas fa-plus"></i>Add Opportunity
         </button>
-        <CardColumns>{opportunityItem}</CardColumns>
-      </Container>
+        <div
+          class="row row-cols-1  row-cols-md-3 g-4"
+          style={{ width: "1000px" }}
+        >{opportunityItem}</div>
+      </div>
     );
   }
 }

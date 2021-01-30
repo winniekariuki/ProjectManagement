@@ -9,9 +9,9 @@ class OpportunityForm extends React.Component {
       opportunity: {
         name: "",
         account: "",
-        amountStage: "coconut",
+        amountStage: "Negotiations",
       },
-      value: 'coconut',
+      value: 'Negotiations',
       submitted: false,
     };
 
@@ -61,11 +61,16 @@ class OpportunityForm extends React.Component {
     const amountStageNames = [{"id":"1","name":"Discovery"},{"id":"2","name":"Proposal Shared"},{"id":"3","name":"Negotiations"}];
     const { opportunity, submitted } = this.state;
     return (
-      <div className="col-md-6 col-md-offset-3">
+      <div className=""   style={{
+        width: "369px",
+        borderRadius: "17px",
+        height: "300px",
+        padding: "10px",
+      }}>
         <form name="form" onSubmit={this.handleSubmit}>
           <div
             className={
-              "form-group" +
+              "form-group mb-3" +
               (submitted && !opportunity.name ? " has-error" : "")
             }
           >
@@ -83,11 +88,11 @@ class OpportunityForm extends React.Component {
           </div>
           <div
             className={
-              "form-group" +
+              "form-group mb-3" +
               (submitted && !opportunity.account ? " has-error" : "")
             }
           >
-            <label htmlFor="address">account</label>
+            <label htmlFor="address">account :</label>
             <select
               className="dropdown"
               name="account"
@@ -107,24 +112,23 @@ class OpportunityForm extends React.Component {
           </div>
           <div
             className={
-              "form-group" +
+              "form-group mb-3" +
               (submitted && !opportunity.amountStage ? " has-error" : "")
             }
           >
              <label>
-          Pick your favorite flavor:
+          Opportunity Amount Stage : 
           <select value={organisation.amountStage} onChange={this.handleChange}>
-            <option value={organisation.amountStage}>Grapefruit</option>
-            <option value={organisation.amountStage}>coconut</option>
-            <option value={organisation.amountStage}>Mango</option>
-            <option value={organisation.amountStage} >Lime</option>
+            <option value={organisation.amountStage}>Discovery</option>
+            <option value={organisation.amountStage}>Negotiations</option>
+            <option value={organisation.amountStage}>Proposal Shared</option>
           </select>
         </label>
             {submitted && !opportunity.amountStage && (
               <div className="help-block">amount stage is required</div>
             )}
           </div>
-          <div className="form-group">
+          <div className="form-group mb-3">
             <button className="btn btn-primary">Create Account</button>
             {creating && (
               // eslint-disable-next-line jsx-a11y/alt-text

@@ -74,7 +74,7 @@ class OrganisationForm extends React.Component {
               <div className="help-block">address is required</div>
             )}
           </div>
-          <div className="form-group">
+          <div className="form-group mb-3">
             <button className="btn btn-primary">Create Account</button>
             {creating && (
               // eslint-disable-next-line jsx-a11y/alt-text

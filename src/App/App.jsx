@@ -1,5 +1,5 @@
 import React from "react";
-import { Router, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter,Router, Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { history } from "../helpers";
@@ -36,7 +36,7 @@ class App extends React.Component {
               <div className={`alert ${alert.type}`}>{alert.message}</div>
             )}
 
-            <Router history={history}>
+            <BrowserRouter history={history}>
               <Switch>
                 <PrivateRoute exact path="/home" component={HomePage} />
                 <PrivateRoute
@@ -49,7 +49,7 @@ class App extends React.Component {
                 <Route exact path="/" component={LoginPage} />
                 <Redirect from="*" to="/" />
               </Switch>
-            </Router>
+            </BrowserRouter>
           </div>
         </div>
       </div>
