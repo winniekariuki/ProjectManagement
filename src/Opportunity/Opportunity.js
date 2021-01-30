@@ -9,12 +9,12 @@ export default function Opportunity({
       <div>
         <div className="card">
           <div className="container">
-            <h4>
-           <b>{name}</b>
-            </h4>
-         <p>{account.name}</p>
-         <p>{account.address}</p>
-         <p>{amountStage}</p>
+            <p>
+           <b>Opportunity Name:{name}</b>
+            </p>
+         <p> Account Name: {account.name}</p>
+         <p>Account Address: {account.address}</p>
+         <p>Opportunity amountStage:{amountStage}</p>
           </div>
         </div>
       </div>

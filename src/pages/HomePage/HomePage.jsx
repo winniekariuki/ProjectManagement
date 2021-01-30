@@ -18,7 +18,6 @@ class HomePage extends React.Component {
     this.hideModal = this.hideModal.bind(this);
   }
 
-
   showModal = () => {
     this.setState({ show: true });
   };
@@ -30,9 +29,7 @@ class HomePage extends React.Component {
   componentDidMount() {
     this.props.getUsers();
     this.props.getOrganisation();
-   
   }
-
 
   handleDeleteUser(id) {
     return (e) => this.props.deleteUser(id);
@@ -40,7 +37,7 @@ class HomePage extends React.Component {
 
   render() {
     const { organisation } = this.props;
-     console.log("promount",this.props);
+    console.log("promount", this.props);
     const organisationItem =
       organisation.items &&
       organisation.items.map((organisation) => (
@@ -48,15 +45,43 @@ class HomePage extends React.Component {
       ));
 
     return (
-      <Container>
-        <Modal show={this.state.show} handleClose={this.hideModal}>
+      <div class="container">
+        <Modal
+        class="modal-dialog modal-fullscreen-sm-down"
+          show={this.state.show}
+          handleClose={this.hideModal}
+        
+        >
           <OrganisationForm />
         </Modal>
-        <button type="button" class="btn" onClick={this.showModal}>
+        
+        <button
+          type="button"
+          class="btn"
+          onClick={this.showModal}
+          style={{
+            marginLeft: "821px",
+            marginRight: "77px",
+            marginTop: "10px",
+            width: "149px",
+            marginBottom: "10px",
+            backgroundColor: "blue",
+            color: "white",
+            fontWeight: "bold",
+            borderRadius: "8px",
+            boxShadow: "black",
+            borderWidth: "1px",
+          }}
+        >
           <i class="fas fa-plus"></i>Add Account
         </button>
-        <CardColumns>{organisationItem}</CardColumns>
-      </Container>
+        <div
+          class="row row-cols-1  row-cols-md-3 g-4"
+          style={{ width: "1000px" }}
+        >
+          {organisationItem}
+        </div>
+      </div>
     );
   }
 }

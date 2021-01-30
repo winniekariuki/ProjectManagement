@@ -33,11 +33,16 @@ class OrganisationForm extends React.Component {
     const { creating } = this.props;
     const { name, address, submitted } = this.state;
     return (
-      <div className="col-md-6 col-md-offset-3">
+      <div className=""   style={{
+        width: "369px",
+        borderRadius: "17px",
+        height: "300px",
+        padding: "10px",
+      }}>
         <form name="form" onSubmit={this.handleSubmit}>
           <div
             className={
-              "form-group" + (submitted && !name ? " has-error" : "")
+              "form-group mb-3" + (submitted && !name ? " has-error" : "")
             }
           >
             <label htmlFor="name">Name</label>
@@ -54,7 +59,7 @@ class OrganisationForm extends React.Component {
           </div>
           <div
             className={
-              "form-group" + (submitted && !address ? " has-error" : "")
+              "form-group mb-3" + (submitted && !address ? " has-error" : "")
             }
           >
             <label htmlFor="address">address</label>
